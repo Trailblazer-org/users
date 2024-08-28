@@ -6,7 +6,7 @@ async function middlewareCheckOrigin(
   next: NextFunction
 ) {
   if (req.headers.host === "localhost:8000") {
-    next();
+    return next();
   }
 
   return res.status(403).send("Direct request is forbidden");
