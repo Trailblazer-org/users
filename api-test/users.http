@@ -3,10 +3,9 @@ POST http://localhost:8000/users/register
 Content-Type: application/json
 
 {
-    "name": "lamine yamaludin",
-    "email": "yamaludin15@gmail.com",
-    "password": "p@ssw0rd12345"
-
+    "name": "marc bernal",
+    "email": "marc_bernal@gmail.com",
+    "password": "p@ssw0rd"
 }
 
 ### Login
@@ -14,15 +13,13 @@ POST http://localhost:8000/users/login
 Content-Type: application/json
 
 {
-    "email": "yamaludin15@gmail.com",
-    "password": "p@ssw0rd12345"
+    "email": "marc_bernal@gmail.com",
+    "password": "p@ssw0rd"
 }
 
 ### Logout
 POST http://localhost:8000/users/logout
 
-# ### akses Resources
-# # GET http://localhost:2000/resources
 
 ### get all users
 GET http://localhost:8000/users
