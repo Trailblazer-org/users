@@ -1,6 +1,5 @@
 import express from "express";
 import middlewareCheckOrigin from "./middlewares/middleware.check-origin";
-// import getAllUser from "./controllers/users.controller";
 import { registerRouter } from "./register/routes/register.router";
 import { loginRouter } from "./auth/routes/login.router";
 import { logoutRouter } from "./auth/routes/logout.router";
