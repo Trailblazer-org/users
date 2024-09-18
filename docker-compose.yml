@@ -1,0 +1,19 @@
+version: "3.8"
+
+services:
+  users-services:
+    build: ./users
+    ports:
+      - "8003:8003"
+    env_file:
+      - .env
+
+  mongo-users:
+    image: mongo
+    ports:
+      - "27020:27020"
+    volumes:
+      - mongo-users:/data/db
+
+volumes:
+  mongo-users:
