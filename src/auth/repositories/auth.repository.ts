@@ -1,4 +1,4 @@
-import { Auth } from "../models/auth.schema";
+import { Auth } from "./models/auth.schema";
 
 export const AuthRepository = {
   create: async (userId: string, refreshToken: string) => {

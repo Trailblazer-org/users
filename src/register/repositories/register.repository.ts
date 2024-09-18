@@ -1,4 +1,4 @@
-import { User } from "../models/user.schema";
+import { User } from "./models/user.schema";
 
 const UserRepository = {
   getAll: async () => {
