@@ -2,7 +2,7 @@ version: "3.8"
 
 services:
   users-services:
-    build: ./users
+    build: ./
     ports:
       - "8003:8003"
     env_file:
