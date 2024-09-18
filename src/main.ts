@@ -3,23 +3,16 @@ import middlewareCheckOrigin from "./middlewares/middleware.check-origin";
 import { registerRouter } from "./register/routes/register.router";
 import { loginRouter } from "./auth/routes/login.router";
 import { logoutRouter } from "./auth/routes/logout.router";
-import mongoose from "mongoose";
 import dotenv from "dotenv";
 import cors from "cors";
 import cookieParser from "cookie-parser";
+import { mongoConnect } from "./utils/mongoose";
 
 dotenv.config();
 
-// koneksi mongodb
-mongoose
-  .connect(process.env.MONGO_URI as string)
-  .then(() => console.log("well done MongoDB Connected"))
-  .catch((error) => {
-    console.log("MongoDB Connection Failed");
-    console.error(error);
-  });
-
 const app = express();
+
+mongoConnect();
 
 app.use(express.json());
 app.use(cors());

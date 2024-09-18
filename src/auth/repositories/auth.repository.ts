@@ -5,6 +5,7 @@ export const AuthRepository = {
     const newAuth = new Auth({ userId, refreshToken });
     return newAuth.save();
   },
+
   findOneAndDelete: async (refreshToken: string) => {
     return Auth.findOneAndDelete({ refreshToken });
   },
