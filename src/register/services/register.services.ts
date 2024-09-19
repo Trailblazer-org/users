@@ -1,7 +1,7 @@
 import UserRepository from "../repositories/register.repository";
 import bcrypt from "bcrypt";
 import { Response } from "express";
-import { rabbitmq } from "../../utils/rabbitmq";
+// import { rabbitmq } from "../../utils/rabbitmq";
 
 const UserServices = {
   getAll: async () => {
