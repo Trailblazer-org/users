@@ -2,6 +2,7 @@ import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken";
 import { AuthRepository } from "../repositories/auth.repository";
 import { UserRepository } from "../repositories/user.repositry";
+import { rabbitmq } from "../../utils/rabbitmq";
 
 export const AuthService = {
   async login(email: string, password: string) {
@@ -48,7 +49,7 @@ export const AuthService = {
 
     await AuthRepository.create(user.id, refreshToken);
 
-    return { accessToken, refreshToken };
+    return { user, accessToken, refreshToken };
   },
 
   async logout(refreshToken: string) {

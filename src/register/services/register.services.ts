@@ -1,6 +1,7 @@
 import UserRepository from "../repositories/register.repository";
 import bcrypt from "bcrypt";
 import { Response } from "express";
+import { rabbitmq } from "../../utils/rabbitmq";
 
 const UserServices = {
   getAll: async () => {
@@ -38,6 +39,10 @@ const UserServices = {
 
       // Create the new user
       const createdUser = await UserRepository.create(newUser);
+
+      // product message => send to rabbitMQ
+      // const channel = await rabbitmq();
+      // channel.sendToQueue();
 
       return res
         .status(201)

@@ -1,14 +1,24 @@
 import { Request, Response } from "express";
 import { AuthService } from "../services/auth.services";
+import { rabbitmq } from "../../utils/rabbitmq";
 
 export const AuthController = {
   async login(req: Request, res: Response) {
     try {
       const { email, password } = req.body;
-      const { accessToken, refreshToken } = await AuthService.login(
+      const { user, accessToken, refreshToken } = await AuthService.login(
         email,
         password
       );
+
+      // Send RabbitMQ message here in the controller
+      const channel = await rabbitmq();
+      const message = JSON.stringify({
+        userId: user.id, // Include user ID in the message
+        email: user.email, // Optionally include email
+        timestamp: Date.now(), // Add a timestamp
+      });
+      channel.sendToQueue("userLoggedIn", Buffer.from(message));
 
       return res
         .cookie("accessToken", accessToken, { httpOnly: true })
