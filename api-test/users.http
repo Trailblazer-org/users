@@ -1,0 +1,27 @@
+### Register
+POST http://103.172.204.30:8000/users/register
+Content-Type: application/json
+
+{
+    "name": "marc bernal",
+    "email": "marc_bernal@gmail.com",
+    "password": "p@ssw0rd"
+}
+
+### Login
+POST http://103.172.204.30:8000/users/login
+Content-Type: application/json
+
+{
+    "email": "marc_bernal@gmail.com",
+    "password": "p@ssw0rd"
+}
+
+### Logout
+POST http://103.172.204.30:8000/users/logout
+
+
+### get all users
+GET http://103.172.204.30:8000/users/allusers
+
+
