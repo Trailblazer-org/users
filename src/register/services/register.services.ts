@@ -11,6 +11,7 @@ const UserServices = {
       return allUsers;
     } catch (error) {
       console.log("error", error);
+      throw error;
     }
   },
 
@@ -39,10 +40,6 @@ const UserServices = {
 
       // Create the new user
       const createdUser = await UserRepository.create(newUser);
-
-      // product message => send to rabbitMQ
-      // const channel = await rabbitmq();
-      // channel.sendToQueue();
 
       return res
         .status(201)
